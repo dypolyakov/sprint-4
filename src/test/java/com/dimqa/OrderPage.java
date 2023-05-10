@@ -12,4 +12,29 @@ public class OrderPage {
     private By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
     private By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     private By nextButton = By.xpath(".//button[text() = 'Далее']");
+
+    public OrderPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void setFirstName(String firstName) {
+        driver.findElement(firstNameField).sendKeys(firstName);
+    }
+
+    public void setLastName(String lastName) {
+        driver.findElement(lastNameField).sendKeys(lastName);
+    }
+
+    public void setAddress(String address) {
+        driver.findElement(addressField).sendKeys(address);
+    }
+
+    public void setMetroStation() {
+//        driver.findElement(metroField);
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        driver.findElement(phoneField).sendKeys(phoneNumber);
+    }
+
 }
