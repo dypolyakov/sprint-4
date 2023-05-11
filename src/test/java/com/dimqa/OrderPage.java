@@ -10,6 +10,7 @@ public class OrderPage {
     private By lastNameField = By.xpath(".//input[@placeholder = '* Фамилия']");
     private By addressField = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
     private By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
+    private By metroLubyanka = By.xpath(".//li[@data-index = '8']");
     private By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     private By nextButton = By.xpath(".//button[text() = 'Далее']");
 
@@ -30,7 +31,8 @@ public class OrderPage {
     }
 
     public void setMetroStation() {
-//        driver.findElement(metroField);
+        driver.findElement(metroField).click();
+        driver.findElement(metroLubyanka).click();
     }
 
     public void setPhoneNumber(String phoneNumber) {
