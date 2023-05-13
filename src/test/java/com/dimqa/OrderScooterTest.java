@@ -24,7 +24,7 @@ public class OrderScooterTest {
         orderPage.fillForm("Дмитрий", "Поляков", "Неглинная улица, 2", "+71234567890");
 
         RentPage rentPage = new RentPage(driver);
-        rentPage.fillForm("13.05.2023");
+        rentPage.fillForm("13.05.2023", "Комментарий для курьера");
 
         MatcherAssert.assertThat(rentPage.getOrderPlacedText(), startsWith("Заказ оформлен"));
     }

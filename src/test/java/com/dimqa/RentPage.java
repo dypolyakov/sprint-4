@@ -44,6 +44,10 @@ public class RentPage {
         driver.findElement(blackColorCheckbox).click();
     }
 
+    public void setComment(String comment) {
+        driver.findElement(commentFiled).sendKeys(comment);
+    }
+
     public void clickOrderButton() {
         driver.findElement(orderButton).click();
     }
@@ -56,10 +60,11 @@ public class RentPage {
         return driver.findElement(orderPlaced).getText();
     }
 
-    public void fillForm(String date) {
+    public void fillForm(String date, String comment) {
         setDate(date);
         selectOneDayPeriod();
         selectBlackColor();
+        setComment(comment);
         clickOrderButton();
         clickConfirmButton();
     }
