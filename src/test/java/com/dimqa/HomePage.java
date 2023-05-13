@@ -12,7 +12,7 @@ public class HomePage {
     private By bottomOrderButton = By.className("Button_Middle__1CSJM");
     // Кнопка принятия куки "да все привыкли"
     private By cookiesAcceptButton = By.className("App_CookieButton__3cvqF");
-    
+
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }

@@ -1,5 +1,7 @@
 package com.dimqa;
 
+import com.dimqa.constants.Color;
+import com.dimqa.constants.RentalPeriod;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Test;
@@ -30,7 +32,8 @@ public class Main {
 
         RentPage rentPage = new RentPage(driver);
         rentPage.setDate("13.05.2023");
-        rentPage.setRentalPeriod();
+        rentPage.setRentalPeriod(RentalPeriod.ONE_DAY);
+        rentPage.setColor(Color.BLACK);
         rentPage.clickOrderButton();
         rentPage.clickConfirmButton();
 
