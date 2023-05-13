@@ -15,7 +15,7 @@ public class OrderPage {
     // Выпадающий список "Метро"
     private By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
     // Первая станция метро из списка
-    private By firstMetroStation = By.xpath(".//li[@data-index = '1']");
+    private By firstMetroStation = By.xpath(".//li[@data-index = '0']");
     // Текстовое поле "Телефон"
     private By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     // Кнопка "Далее"
