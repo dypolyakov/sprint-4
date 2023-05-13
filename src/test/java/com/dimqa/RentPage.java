@@ -36,25 +36,12 @@ public class RentPage {
         driver.findElement(dateField).sendKeys(date, Keys.ENTER);
     }
 
-    public void setRentalPeriod(String period) {
+    public void selectOneDayPeriod() {
         driver.findElement(rentalPeriod).click();
-        String xpath = String.format(".//div[(@class = 'Dropdown-option' and text() = '%s')]", period);
-        By locator = By.xpath(xpath);
-        driver.findElement(locator).click();
+        driver.findElement(oneDayPeriod).click();
     }
-
-    public void setColor(String color) {
-        switch (color) {
-            case "Black":
-                driver.findElement(blackColorCheckbox).click();
-                break;
-            case "Grey":
-                driver.findElement(greyColorCheckbox).click();
-                break;
-            default:
-                break;
-        }
-
+    public void selectBlackColor() {
+        driver.findElement(blackColorCheckbox).click();
     }
 
     public void clickOrderButton() {
@@ -67,5 +54,13 @@ public class RentPage {
 
     public String getOrderPlacedText() {
         return driver.findElement(orderPlaced).getText();
+    }
+
+    public void fillForm(String date) {
+        setDate(date);
+        selectOneDayPeriod();
+        selectBlackColor();
+        clickOrderButton();
+        clickConfirmButton();
     }
 }

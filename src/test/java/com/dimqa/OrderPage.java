@@ -50,4 +50,13 @@ public class OrderPage {
         driver.findElement(nextButton).click();
     }
 
+    public void fillForm(String firstName, String lastName, String address, String phoneNumber) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setAddress(address);
+        setMetroStation();
+        setPhoneNumber(phoneNumber);
+        clickNextButton();
+    }
+
 }
