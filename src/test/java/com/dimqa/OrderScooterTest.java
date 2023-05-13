@@ -1,7 +1,5 @@
 package com.dimqa;
 
-import com.dimqa.constants.Color;
-import com.dimqa.constants.RentalPeriod;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Test;
@@ -10,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import static org.hamcrest.CoreMatchers.startsWith;
 
-public class Main {
+public class OrderScooterTest {
     private WebDriver driver;
 
     @Test
@@ -23,19 +21,10 @@ public class Main {
         homePage.clickTopOrderButton();
 
         OrderPage orderPage = new OrderPage(driver);
-        orderPage.setFirstName("Дмитрий");
-        orderPage.setLastName("Поляков");
-        orderPage.setAddress("Неглинная улица, 2");
-        orderPage.setMetroStation();
-        orderPage.setPhoneNumber("+71234567890");
-        orderPage.clickNextButton();
+        orderPage.fillForm("Дмитрий", "Поляков", "Неглинная улица, 2", "+71234567890");
 
         RentPage rentPage = new RentPage(driver);
-        rentPage.setDate("13.05.2023");
-        rentPage.setRentalPeriod(RentalPeriod.ONE_DAY);
-        rentPage.setColor(Color.BLACK);
-        rentPage.clickOrderButton();
-        rentPage.clickConfirmButton();
+        rentPage.fillForm("13.05.2023");
 
         MatcherAssert.assertThat(rentPage.getOrderPlacedText(), startsWith("Заказ оформлен"));
     }
