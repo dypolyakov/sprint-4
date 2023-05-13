@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-public class AboutRentPage {
+public class RentPage {
     private WebDriver driver;
 
     private By dateField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
@@ -17,12 +17,11 @@ public class AboutRentPage {
     private By orderPlaced = By.className("Order_ModalHeader__3FDaJ");
     
 
-    public AboutRentPage(WebDriver driver) {
+    public RentPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void setDate() {
-        String date = "13.05.2023";
+    public void setDate(String date) {
         driver.findElement(dateField).sendKeys(date, Keys.ENTER);
     }
 

@@ -28,13 +28,13 @@ public class Main {
         orderPage.setPhoneNumber("+71234567890");
         orderPage.clickNextButton();
 
-        AboutRentPage aboutRentPage = new AboutRentPage(driver);
-        aboutRentPage.setDate();
-        aboutRentPage.setRentalPeriod();
-        aboutRentPage.clickOrderButton();
-        aboutRentPage.clickConfirmButton();
+        RentPage rentPage = new RentPage(driver);
+        rentPage.setDate("13.05.2023");
+        rentPage.setRentalPeriod();
+        rentPage.clickOrderButton();
+        rentPage.clickConfirmButton();
 
-        MatcherAssert.assertThat(aboutRentPage.getOrderPlacedText(), startsWith("Заказ оформлен"));
+        MatcherAssert.assertThat(rentPage.getOrderPlacedText(), startsWith("Заказ оформлен"));
     }
 
     @After
