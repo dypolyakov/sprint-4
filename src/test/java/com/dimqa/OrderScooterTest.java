@@ -31,6 +31,6 @@ public class OrderScooterTest {
 
     @After
     public void tearDown() {
-//        driver.quit();
+        driver.quit();
     }
 }
