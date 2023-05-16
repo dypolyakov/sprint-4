@@ -1,5 +1,7 @@
 package com.dimqa;
 
+import com.dimqa.pages.HomePage;
+import com.dimqa.pages.OrderPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,9 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
-
-public class LogoTest {
+public class AdditionalTest {
     private WebDriver driver;
 
     @Before
@@ -35,7 +35,7 @@ public class LogoTest {
     }
 
     @Test
-    public void yandexLogoTest() throws InterruptedException {
+    public void yandexLogoTest() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
@@ -46,6 +46,18 @@ public class LogoTest {
         Assert.assertEquals("Ссылка на логотипе яндекс не совпадает с yandex.ru ",
                 expectedUrl,
                 actualUrl);
+    }
+
+    @Test
+    public void checkErrorInOrderForm() {
+        driver.get("https://qa-scooter.praktikum-services.ru/order");
+
+        OrderPage orderPage = new OrderPage(driver);
+        orderPage.clickNextButton();
+        orderPage.setAddress("1234");
+
+
+
     }
 
     @After

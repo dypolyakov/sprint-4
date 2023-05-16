@@ -1,4 +1,4 @@
-package com.dimqa;
+package com.dimqa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -28,6 +28,12 @@ public class HomePage {
     // Логотип "Яндекс"
     private final By yandexLogo = By.className("Header_LogoYandex__3TSOI");
 
+    private final By nameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][1]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
+
+    private final By lastnameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][2]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
+
 
 
     public HomePage(WebDriver driver) {
@@ -46,17 +52,17 @@ public class HomePage {
         driver.findElement(bottomOrderButton).click();
     }
 
-    public void clickFirstQuestion() {
+    public void clickQuestion(String locator) {
         ((JavascriptExecutor)driver).executeScript(
                 "arguments[0].scrollIntoView();",
                 driver.findElement(By.className("accordion"))
         );
-        driver.findElement(firstQuestion).click();
+        driver.findElement(By.id(locator)).click();
     }
 
-    public String getFirstAnswerText() {
-        new WebDriverWait(driver, Duration.ofSeconds(3)).until(ExpectedConditions.visibilityOfElementLocated(firstAnswer));
-        return driver.findElement(firstAnswer).getText();
+    public String getAnswerText(String locator) {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
+        return driver.findElement(By.id(locator)).getText();
     }
 
     public void clickScooterLogo() {

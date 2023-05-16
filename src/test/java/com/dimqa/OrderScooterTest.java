@@ -1,5 +1,8 @@
 package com.dimqa;
 
+import com.dimqa.pages.HomePage;
+import com.dimqa.pages.OrderPage;
+import com.dimqa.pages.RentPage;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Test;
