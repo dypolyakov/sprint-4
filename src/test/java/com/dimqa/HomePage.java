@@ -9,17 +9,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class HomePage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Верхняя кнопка "Заказать"
-    private By topOrderButton = By.xpath(".//div[@class = 'Header_Header__214zg']//button[text() = 'Заказать']");
+    private final By topOrderButton = By.xpath(".//div[@class = 'Header_Header__214zg']//button[text() = 'Заказать']");
     // Нижняя кнопка "Заказать"
-    private By bottomOrderButton = By.className("Button_Middle__1CSJM");
+    private final By bottomOrderButton = By.className("Button_Middle__1CSJM");
     // Кнопка принятия куки "да все привыкли"
-    private By cookiesAcceptButton = By.className("App_CookieButton__3cvqF");
-
-    private By firstQuestion = By.xpath(".//div[@class = 'accordion__item'][1]");
-    private By firstAnswer = By.xpath(".//div[@id='accordion__panel-0']/p");
+    private final By cookiesAcceptButton = By.className("App_CookieButton__3cvqF");
+    // 1-ый вопрос в разделе "Вопросы о важном"
+    private final By firstQuestion = By.xpath(".//div[@class = 'accordion__item'][1]");
+    // 1-ый ответ в разделе "Вопросы о важном"
+    private final By firstAnswer = By.xpath(".//div[@id='accordion__panel-0']/p");
 
 
     public HomePage(WebDriver driver) {
@@ -39,8 +40,10 @@ public class HomePage {
     }
 
     public void clickFirstQuestion() {
-//        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", firstQuestion);
-//        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(firstQuestion));
+        ((JavascriptExecutor)driver).executeScript(
+                "arguments[0].scrollIntoView();",
+                driver.findElement(By.className("accordion"))
+        );
         driver.findElement(firstQuestion).click();
     }
 
