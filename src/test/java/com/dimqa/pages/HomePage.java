@@ -18,21 +18,18 @@ public class HomePage {
     private final By bottomOrderButton = By.className("Button_Middle__1CSJM");
     // Кнопка принятия куки "да все привыкли"
     private final By cookiesAcceptButton = By.className("App_CookieButton__3cvqF");
-    // 1-ый вопрос в разделе "Вопросы о важном"
-    private final By firstQuestion = By.xpath(".//div[@class = 'accordion__item'][1]");
-    // 1-ый ответ в разделе "Вопросы о важном"
-    private final By firstAnswer = By.xpath(".//div[@id='accordion__panel-0']/p");
-
     // Логотип "Самокат"
     private final By scooterLogo = By.className("Header_LogoScooter__3lsAR");
     // Логотип "Яндекс"
     private final By yandexLogo = By.className("Header_LogoYandex__3TSOI");
+    // Кнопка "Статус заказа"
+    private final By statusButton = By.className("Header_Link__1TAG7");
+    // Поле поиска по номеру заказа "Введите номер заказа"
+    private final By orderSearchField = By.xpath(".//input[@class = 'Input_Input__1iN_Z Header_Input__xIoUq']");
+    // Кнопка Go поиска заказа
+    private final By goButton = By.xpath(".//button[@class = 'Button_Button__ra12g Header_Button__28dPO']");
 
-    private final By nameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][1]" +
-            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
 
-    private final By lastnameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][2]" +
-            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
 
 
 
@@ -47,6 +44,13 @@ public class HomePage {
     public void clickTopOrderButton() {
         driver.findElement(topOrderButton).click();
     }
+    public By getTopOrderButton() {
+        return topOrderButton;
+    }
+
+    public By getBottomOrderButton() {
+        return bottomOrderButton;
+    }
 
     public void clickBottomOrderButton() {
         driver.findElement(bottomOrderButton).click();
@@ -57,6 +61,8 @@ public class HomePage {
                 "arguments[0].scrollIntoView();",
                 driver.findElement(By.className("accordion"))
         );
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.id(locator)));
         driver.findElement(By.id(locator)).click();
     }
 
@@ -71,5 +77,23 @@ public class HomePage {
 
     public WebElement getYandexLogoElement() {
         return driver.findElement(yandexLogo);
+    }
+
+    public void clickOrderButton(By button) {
+        driver.findElement(button).click();
+    }
+
+    public void clickStatusButton() {
+        driver.findElement(statusButton).click();
+    }
+
+    public void setOrderSearchField(String orderNumber) {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(orderSearchField));
+        driver.findElement(orderSearchField).sendKeys(orderNumber);
+    }
+
+    public void clickGoButton() {
+        driver.findElement(goButton).click();
     }
 }

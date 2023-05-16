@@ -5,27 +5,26 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 public class RentPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Текстовое поле "Дата"
-    private By dateField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
+    private final By dateField = By.xpath(".//input[@placeholder = '* Когда привезти самокат']");
     // Выпадающий список "Срок аренды"
-    private By rentalPeriod = By.className("Dropdown-root");
+    private final By rentalPeriod = By.className("Dropdown-root");
     // Первый элемент выпадающего списка "Срок аренды" - "Сутки"
-    private By oneDayPeriod = By.xpath(".//div[(@class = 'Dropdown-option' and text() = 'сутки')]");
+    private final By oneDayPeriod = By.xpath(".//div[(@class = 'Dropdown-option' and text() = 'сутки')]");
     // Текстовое поле "Комментарий"
-    private By commentFiled = By.xpath(".//input[@placeholder = 'Комментарий для курьера']");
+    private final By commentFiled = By.xpath(".//input[@placeholder = 'Комментарий для курьера']");
     // Чекбокс выбора черного цвета
-    private By blackColorCheckbox = By.xpath(".//label[@for = 'black']");
+    private final By blackColorCheckbox = By.xpath(".//label[@for = 'black']");
     // Чекбокс выбора серого цвета
-    private By greyColorCheckbox = By.xpath(".//label[@for = 'grey']");
+    private final By greyColorCheckbox = By.xpath(".//label[@for = 'grey']");
     // Кнопка "Заказать"
-    private By orderButton = By.xpath(".//div[@class = 'Order_Buttons__1xGrp']/button[text() = 'Заказать']");
+    private final By orderButton = By.xpath(".//div[@class = 'Order_Buttons__1xGrp']/button[text() = 'Заказать']");
     // Кнопка подтверждения заказа в модальном окне "Хотите оформить заказ?"
-    private By confirmButton = By.xpath(".//div[@class = 'Order_Modal__YZ-d3']//button[text() = 'Да']");
-
+    private final By confirmButton = By.xpath(".//div[@class = 'Order_Modal__YZ-d3']//button[text() = 'Да']");
     // Модальное окно успешного заказа
-    private By orderPlaced = By.className("Order_ModalHeader__3FDaJ");
+    private final By orderPlaced = By.className("Order_ModalHeader__3FDaJ");
     
 
     public RentPage(WebDriver driver) {

@@ -4,22 +4,36 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class OrderPage {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     // Текстовое поле "Имя"
-    private By firstNameField = By.xpath(".//input[@placeholder = '* Имя']");
+    private final By firstNameField = By.xpath(".//input[@placeholder = '* Имя']");
     // Текстовое поле "Фамилия"
-    private By lastNameField = By.xpath(".//input[@placeholder = '* Фамилия']");
+    private final By lastNameField = By.xpath(".//input[@placeholder = '* Фамилия']");
     // Текстовое поле "Адрес"
-    private By addressField = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
+    private final By addressField = By.xpath(".//input[@placeholder = '* Адрес: куда привезти заказ']");
     // Выпадающий список "Метро"
-    private By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
+    private final By metroField = By.xpath(".//input[@placeholder = '* Станция метро']");
     // Первая станция метро из списка
-    private By firstMetroStation = By.xpath(".//li[@data-index = '0']");
+    private final By firstMetroStation = By.xpath(".//li[@data-index = '0']");
     // Текстовое поле "Телефон"
-    private By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
+    private final By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     // Кнопка "Далее"
-    private By nextButton = By.xpath(".//button[text() = 'Далее']");
+    private final By nextButton = By.xpath(".//button[text() = 'Далее']");
+
+    private final By firstNameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][1]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
+
+    private final By lastNameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][2]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
+
+    private final By addressErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][3]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
+
+    private final By metroErrorText = By.className("Order_MetroError__1BtZb");
+
+    private final By phoneNumberErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][4]" +
+            "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
 
     public OrderPage(WebDriver driver) {
         this.driver = driver;
@@ -57,6 +71,26 @@ public class OrderPage {
         setMetroStation();
         setPhoneNumber(phoneNumber);
         clickNextButton();
+    }
+
+    public String getFirstNameErrorText() {
+        return driver.findElement(firstNameErrorText).getText();
+    }
+
+    public String getLastNameErrorText() {
+        return driver.findElement(lastNameErrorText).getText();
+    }
+
+    public String getAddressErrorText() {
+        return driver.findElement(addressErrorText).getText();
+    }
+
+    public String getMetroErrorText() {
+        return driver.findElement(metroErrorText).getText();
+    }
+
+    public String getPhoneNumberErrorText() {
+        return driver.findElement(phoneNumberErrorText).getText();
     }
 
 }
