@@ -29,31 +29,12 @@ public class HomePage {
     // Кнопка Go поиска заказа
     private final By goButton = By.xpath(".//button[@class = 'Button_Button__ra12g Header_Button__28dPO']");
 
-
-
-
-
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void acceptCookies() {
         driver.findElement(cookiesAcceptButton).click();
-    }
-
-    public void clickTopOrderButton() {
-        driver.findElement(topOrderButton).click();
-    }
-    public By getTopOrderButton() {
-        return topOrderButton;
-    }
-
-    public By getBottomOrderButton() {
-        return bottomOrderButton;
-    }
-
-    public void clickBottomOrderButton() {
-        driver.findElement(bottomOrderButton).click();
     }
 
     public void clickQuestion(String locator) {
@@ -67,7 +48,8 @@ public class HomePage {
     }
 
     public String getAnswerText(String locator) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
         return driver.findElement(By.id(locator)).getText();
     }
 
@@ -94,7 +76,8 @@ public class HomePage {
     }
 
     public void clickGoButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(goButton));
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(goButton));
         driver.findElement(goButton).click();
     }
 }
