@@ -41,7 +41,6 @@ public class QuestionsTest {
 
     @Before
     public void setUp() {
-//        driver = new FirefoxDriver();
         driver = new ChromeDriver();
     }
 

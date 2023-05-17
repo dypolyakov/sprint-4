@@ -8,10 +8,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AdditionalTest {
     private WebDriver driver;
@@ -19,7 +17,6 @@ public class AdditionalTest {
     @Before
     public void setUp() {
         driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
     }
 
     @Test
@@ -53,7 +50,7 @@ public class AdditionalTest {
         }
 
         String currentUrl = driver.getCurrentUrl();
-        String expectedUrl = "https://yandex.ru/";
+        String expectedUrl = "https://dzen.ru/?yredirect=true";
 
         Assert.assertEquals("Открывается вкладка с некорректным адресом",
                 expectedUrl,
