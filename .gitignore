@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.idea/encodings.xml
+/.idea/misc.xml
+/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch
+/.idea/uiDesigner.xml
+/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
+/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch
