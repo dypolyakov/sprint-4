@@ -7,10 +7,10 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdditionalTest {
     private WebDriver driver;
@@ -37,17 +37,26 @@ public class AdditionalTest {
     }
 
     @Test
-    public void checkyandexLogoLink() {
+    public void checkYandexLogoLink() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
 
         HomePage homePage = new HomePage(driver);
-        WebElement yandexLogo = homePage.getYandexLogoElement();
-        String actualUrl = yandexLogo.getAttribute("href");
+        String originalWindow = driver.getWindowHandle();
+
+        assert driver.getWindowHandles().size() == 1;
+        
+        homePage.clickYandexLogo();
+
+        for (String handle : driver.getWindowHandles()) {
+            driver.switchTo().window(handle);
+        }
+
+        String currentUrl = driver.getCurrentUrl();
         String expectedUrl = "https://yandex.ru/";
 
         Assert.assertEquals("Ссылка на логотипе яндекс не совпадает с yandex.ru ",
                 expectedUrl,
-                actualUrl);
+                currentUrl);
     }
 
     @Test

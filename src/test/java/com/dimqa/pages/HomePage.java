@@ -75,8 +75,8 @@ public class HomePage {
         driver.findElement(scooterLogo).click();
     }
 
-    public WebElement getYandexLogoElement() {
-        return driver.findElement(yandexLogo);
+    public void clickYandexLogo() {
+        driver.findElement(yandexLogo).click();
     }
 
     public void clickOrderButton(By button) {
