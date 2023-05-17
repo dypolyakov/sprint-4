@@ -20,18 +20,18 @@ public class OrderPage {
     private final By phoneField = By.xpath(".//input[@placeholder = '* Телефон: на него позвонит курьер']");
     // Кнопка "Далее"
     private final By nextButton = By.xpath(".//button[text() = 'Далее']");
-
+    // Ошибка в поле "Имя"
     private final By firstNameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][1]" +
             "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
-
+    // Ошибка в поле "Фамилия"
     private final By lastNameErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][2]" +
             "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
-
+    // Ошибка в поле "Адрес"
     private final By addressErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][3]" +
             "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
-
+    // Ошибка в поле "Станция метро"
     private final By metroErrorText = By.className("Order_MetroError__1BtZb");
-
+    // Ошибка в поле "Телефон"
     private final By phoneNumberErrorText = By.xpath(".//div[@class = 'Input_InputContainer__3NykH'][4]" +
             "//div[@class = 'Input_ErrorMessage__3HvIb Input_Visible___syz6']");
 
