@@ -12,11 +12,6 @@ import java.time.Duration;
 public class HomePage {
     private final WebDriver driver;
 
-    // Верхняя кнопка "Заказать"
-    private final By topOrderButton = By.xpath(".//div[@class = 'Header_Header__214zg']//button[text() = 'Заказать']");
-    // Нижняя кнопка "Заказать"
-    private final By bottomOrderButton = By.className("Button_Middle__1CSJM");
-    // Кнопка принятия куки "да все привыкли"
     private final By cookiesAcceptButton = By.className("App_CookieButton__3cvqF");
     // Логотип "Самокат"
     private final By scooterLogo = By.className("Header_LogoScooter__3lsAR");
