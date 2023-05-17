@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AdditionalTest {
@@ -44,7 +45,7 @@ public class AdditionalTest {
         String originalWindow = driver.getWindowHandle();
 
         assert driver.getWindowHandles().size() == 1;
-        
+
         homePage.clickYandexLogo();
 
         for (String handle : driver.getWindowHandles()) {
@@ -54,7 +55,7 @@ public class AdditionalTest {
         String currentUrl = driver.getCurrentUrl();
         String expectedUrl = "https://yandex.ru/";
 
-        Assert.assertEquals("Ссылка на логотипе яндекс не совпадает с yandex.ru ",
+        Assert.assertEquals("Открывается вкладка с некорректным адресом",
                 expectedUrl,
                 currentUrl);
     }

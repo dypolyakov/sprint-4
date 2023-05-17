@@ -94,6 +94,7 @@ public class HomePage {
     }
 
     public void clickGoButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(goButton));
         driver.findElement(goButton).click();
     }
 }
