@@ -9,6 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import static com.dimqa.config.AppConfig.APP_URL;
+import static com.dimqa.config.AppConfig.ORDER_URL;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class AdditionalTest {
@@ -21,7 +24,7 @@ public class AdditionalTest {
 
     @Test
     public void checkScooterLogo() {
-        driver.get("https://qa-scooter.praktikum-services.ru/order");
+        driver.get(APP_URL);
 
         HomePage homePage = new HomePage(driver);
         homePage.clickScooterLogo();
@@ -36,7 +39,7 @@ public class AdditionalTest {
 
     @Test
     public void checkYandexLogoLink() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(APP_URL);
 
         HomePage homePage = new HomePage(driver);
         String originalWindow = driver.getWindowHandle();
@@ -59,7 +62,7 @@ public class AdditionalTest {
 
     @Test
     public void checkErrorsInOrderForm() {
-        driver.get("https://qa-scooter.praktikum-services.ru/order");
+        driver.get(ORDER_URL);
 
         OrderPage orderPage = new OrderPage(driver);
         orderPage.clickNextButton();
@@ -74,7 +77,7 @@ public class AdditionalTest {
 
     @Test
     public void checkMissingOrder() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(APP_URL);
 
         HomePage homePage = new HomePage(driver);
         homePage.clickStatusButton();

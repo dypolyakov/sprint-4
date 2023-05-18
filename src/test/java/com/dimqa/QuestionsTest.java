@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import static com.dimqa.config.AppConfig.APP_URL;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(Parameterized.class)
@@ -46,7 +48,7 @@ public class QuestionsTest {
 
     @Test
     public void checkQuestions() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(APP_URL);
         HomePage homePage = new HomePage(driver);
         homePage.acceptCookies();
         homePage.clickQuestion(questionId);

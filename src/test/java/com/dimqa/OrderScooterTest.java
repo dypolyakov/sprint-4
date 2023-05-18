@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static com.dimqa.config.AppConfig.APP_URL;
 import static org.hamcrest.CoreMatchers.startsWith;
 
 @RunWith(Parameterized.class)
@@ -40,7 +41,7 @@ public class OrderScooterTest {
 
     @Test
     public void orderScooter() {
-        driver.get("https://qa-scooter.praktikum-services.ru/");
+        driver.get(APP_URL);
 
         HomePage homePage = new HomePage(driver);
         homePage.acceptCookies();
