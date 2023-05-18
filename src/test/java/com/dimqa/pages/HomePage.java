@@ -21,6 +21,41 @@ public class HomePage {
     // Поле поиска по номеру заказа "Введите номер заказа"
     private final By orderSearchField = By.xpath(".//input[@class = 'Input_Input__1iN_Z Header_Input__xIoUq']");
     // Кнопка Go поиска заказа
+
+    // 1-ый вопрос в разделе "Вопросы о важном"
+    public static final By firstQuestion = By.id("accordion__heading-0");
+    // 2-ый вопрос в разделе "Вопросы о важном"
+    public static final By secondQuestion = By.id("accordion__heading-1");
+    // 3-ый вопрос в разделе "Вопросы о важном"
+    public static final By thirdQuestion = By.id("accordion__heading-2");
+    // 4-ый вопрос в разделе "Вопросы о важном"
+    public static final By fourthQuestion = By.id("accordion__heading-3");
+    // 5-ый вопрос в разделе "Вопросы о важном"
+    public static final By fifthQuestion = By.id("accordion__heading-4");
+    // 6-ый вопрос в разделе "Вопросы о важном"
+    public static final By sixthQuestion = By.id("accordion__heading-5");
+    // 7-ый вопрос в разделе "Вопросы о важном"
+    public static final By seventhQuestion = By.id("accordion__heading-6");
+    // 8-ый вопрос в разделе "Вопросы о важном"
+    public static final By eighthQuestion = By.id("accordion__heading-7");
+
+    // 1-ый ответ в разделе "Вопросы о важном"
+    public static final By firstAnswer = By.id("accordion__panel-0");
+    // 2-ый ответ в разделе "Вопросы о важном"
+    public static final By secondAnswer = By.id("accordion__panel-1");
+    // 3-ый ответ в разделе "Вопросы о важном"
+    public static final By thirdAnswer = By.id("accordion__panel-2");
+    // 4-ый ответ в разделе "Вопросы о важном"
+    public static final By fourthAnswer = By.id("accordion__panel-3");
+    // 5-ый ответ в разделе "Вопросы о важном"
+    public static final By fifthAnswer = By.id("accordion__panel-4");
+    // 6-ый ответ в разделе "Вопросы о важном"
+    public static final By sixthAnswer = By.id("accordion__panel-5");
+    // 7-ый ответ в разделе "Вопросы о важном"
+    public static final By seventhAnswer = By.id("accordion__panel-6");
+    // 8-ый ответ в разделе "Вопросы о важном"
+    public static final By eighthAnswer = By.id("accordion__panel-7");
+    // Кнопка GO
     private final By goButton = By.xpath(".//button[@class = 'Button_Button__ra12g Header_Button__28dPO']");
 
     public HomePage(WebDriver driver) {
@@ -31,20 +66,20 @@ public class HomePage {
         driver.findElement(cookiesAcceptButton).click();
     }
 
-    public void clickQuestion(String locator) {
+    public void clickQuestion(By locator) {
         ((JavascriptExecutor)driver).executeScript(
                 "arguments[0].scrollIntoView();",
                 driver.findElement(By.className("accordion"))
         );
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.id(locator)));
-        driver.findElement(By.id(locator)).click();
+                .until(ExpectedConditions.elementToBeClickable(locator));
+        driver.findElement(locator).click();
     }
 
-    public String getAnswerText(String locator) {
+    public String getAnswerText(By locator) {
         new WebDriverWait(driver, Duration.ofSeconds(10))
-                .until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
-        return driver.findElement(By.id(locator)).getText();
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+        return driver.findElement(locator).getText();
     }
 
     public void clickScooterLogo() {
