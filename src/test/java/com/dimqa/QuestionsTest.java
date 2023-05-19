@@ -54,8 +54,10 @@ public class QuestionsTest {
         HomePage homePage = new HomePage(driver);
         homePage.acceptCookies();
         homePage.clickQuestion(questionLocator);
+
         String error = "Вопросы о важном: Отображается некорректный текст";
         String actual = homePage.getAnswerText(answerLocator);
+
         Assert.assertEquals(error, expected, actual);
     }
 

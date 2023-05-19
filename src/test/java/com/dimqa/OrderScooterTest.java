@@ -41,18 +41,22 @@ public class OrderScooterTest {
 
     @Test
     public void orderScooter() {
-        driver.get(APP_URL);
-
         HomePage homePage = new HomePage(driver);
+        OrderPage orderPage = new OrderPage(driver);
+        RentPage rentPage = new RentPage(driver);
+
+        String phoneNumber = "+71234567890";
+        String firstName = "Дмитрий";
+        String lastName = "Поляков";
+        String address = "Самая лучшая улица, 2";
+        String date = "13.05.2023";
+        String comment = "Комментарий для курьера";
+
+        driver.get(APP_URL);
         homePage.acceptCookies();
         homePage.clickOrderButton(orderButton);
-
-        OrderPage orderPage = new OrderPage(driver);
-        orderPage.fillForm("Дмитрий", "Поляков", "Самая лучшая улица, 2", "+71234567890");
-
-        RentPage rentPage = new RentPage(driver);
-        rentPage.fillForm("13.05.2023", "Комментарий для курьера");
-
+        orderPage.fillForm(firstName, lastName, address, phoneNumber);
+        rentPage.fillForm(date, comment);
         MatcherAssert.assertThat(rentPage.getOrderPlacedText(), startsWith("Заказ оформлен"));
     }
 
