@@ -42,7 +42,6 @@ public class AdditionalTest {
         driver.get(APP_URL);
 
         HomePage homePage = new HomePage(driver);
-        String originalWindow = driver.getWindowHandle();
 
         assert driver.getWindowHandles().size() == 1;
 
